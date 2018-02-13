@@ -49,4 +49,14 @@ $ minishift addons apply dotnet
 After this is done, you can easily deploy this application:
 ```
 $ oc new-app --name=nancydemo dotnet:2.0~https://github.com/gbraad/nancydemo
+$ oc expose services nancydemo
 ```
+
+After which the service is exposed on a route. To open:
+```
+$ oc get route nancydemo
+```
+
+eg. opening `http://nancydemo-myproject.10.0.75.128.nip.io` results in:
+
+    Hello World, it's Nancy on .NET Core
